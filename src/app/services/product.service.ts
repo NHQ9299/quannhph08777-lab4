@@ -22,7 +22,11 @@ getProducts(): Observable<Product[]>{
   removeProduct(id): Observable<Product>{
     return this.http.delete<Product>(`${this.api}/product/${id}`);
   }
-  addProduct(product){
+  addProduct(product): Observable<Product>{
+    return this.http.post<Product>(`${this.api}/product`, product);
+  }
 
+  updateProduct(product): Observable<Product>{
+    return this.http.put<Product>(`${this.api}/${product.id}`, product);
   }
 }
