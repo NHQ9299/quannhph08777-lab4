@@ -24,7 +24,9 @@ export class TableComponent implements OnInit {
   }
 
   removeItem(id) {
-    this.products = this.productService.removeProduct(id);
+      this.productService.removeProduct(id).subscribe(response => {
+        this.products = this.products.filter(product => product.id != response.id);
+      });
   }
   editItem(id) {
     this.products = this.productService.editProduct(id);
