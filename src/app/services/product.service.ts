@@ -6,24 +6,24 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class SService {
-  api = 'https://5e7b6a340e0463001633330c.mockapi.io';
+  api = 'https://5e7b6a340e0463001633330c.mockapi.io/product';
 
   constructor(
     private http: HttpClient
   ) { }
 
 getProducts(): Observable<Product[]>{
-      return this.http.get<Product[]>(`${this.api}/product`);
+      return this.http.get<Product[]>(`${this.api}`);
   }
   getProduct(id): Observable<Product>{
-    return this.http.get<Product>(`${this.api}/product/${id}`);
+    return this.http.get<Product>(`${this.api}/${id}`);
   }
 
   removeProduct(id): Observable<Product>{
-    return this.http.delete<Product>(`${this.api}/product/${id}`);
+    return this.http.delete<Product>(`${this.api}/${id}`);
   }
   addProduct(product): Observable<Product>{
-    return this.http.post<Product>(`${this.api}/product`, product);
+    return this.http.post<Product>(`${this.api}`, product);
   }
 
   updateProduct(product): Observable<Product>{
