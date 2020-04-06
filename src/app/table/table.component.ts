@@ -28,7 +28,5 @@ export class TableComponent implements OnInit {
         this.products = this.products.filter(product => product.id != response.id);
       });
   }
-  editItem(id) {
-    this.products = this.productService.editProduct(id);
-  }
+
 }
